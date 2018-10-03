@@ -1,4 +1,7 @@
+<!DOCTYPE html>
+<html>
 <body>
+  <script src="../../scripty.js"></script>
 
     <hr width="275px">
 
@@ -15,8 +18,13 @@
     <div>
         <table cellspacing="0" cellpadding="0">
             <tr *ngFor="let rows of board.rows">
-                <td *ngFor="let tile of rows" (click)="tileCheck(tile.row, tile.col)"
+                <td *ngFor="let tile of rows" (click)="tileCheck(tile.row, tile.col)" onclick="playAudio()"
                     (contextmenu)="flagCheck(tile.row, tile.col)">
+
+                  <!--  <button onclick="playAudio()" type="button">Play Audio</button>-->
+
+
+
                     <img *ngIf="!tile.isRevealed && !tile.isFlagged && !tile.cheatReveal" src="../../assets/TilePictures/CoveredTile.png" />
                     <img *ngIf="!tile.isRevealed && tile.isFlagged && !tile.cheatReveal" src="../../assets/TilePictures/FlagTile.png" />
                     <img *ngIf="(tile.isRevealed || tile.cheatReveal) && tile.isBomb" src="../../assets/TilePictures/MineTile.png" />
@@ -40,3 +48,4 @@
         <p>Time: {{digitalTimer}}</p> </b>
     </div>
 </body>
+</html>

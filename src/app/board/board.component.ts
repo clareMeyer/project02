@@ -2,6 +2,8 @@ import { Component, OnChanges, Input } from '@angular/core';
 import { SimpleTimer } from 'ng2-simple-timer';
 import { board } from '../models/board';
 
+import {Howl, Howler} from 'howler';
+
 @Component({
   selector: 'app-board',
   templateUrl: './board.component.html',
@@ -205,6 +207,7 @@ export class BoardComponent implements OnChanges {
     }
   }
 
+
   /**
    * Determines revealing behavior of a left-clicked tile.
    *
@@ -217,6 +220,7 @@ export class BoardComponent implements OnChanges {
    * @param col The column of the tile being flagged.
    */
   tileCheck(row: number, col: number) {
+
 
     if(!this.isGameOver) {
       if(this.board.rows[row][col].isBomb && (this.board.rows[row][col].cheatReveal==false)) { // bomb was clicked, end game
